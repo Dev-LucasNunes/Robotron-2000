@@ -76,15 +76,6 @@ main {
 }
 
 /****************************** Equipamentos *****/
-
-.teste {
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  position: relative;
-  bottom: 50px;
-  left: 800px;
-}
 .equipamentos {
   flex-basis: 32%;
 }
@@ -149,6 +140,44 @@ main {
   border-color: var(--main-cinza);
 }
 
+.buttons {
+  width: 220px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 35px 35px 35px;
+  grid-gap: 3px;
+  position: relative;
+  right: 300px;
+  top: 50px;
+}
+
+.color {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9em;
+  border: 3px solid var(--main-branco);
+  background: var(--main-branco);
+  clip-path: polygon(
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    0 100%,
+    0 0
+  );
+  border: 2px solid var(--main-branco);
+  margin: 3px 3px;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 0.2em 1em;
+  z-index: 10;
+}
+
+.color:hover {
+  background: var(--main-preto);
+  color: var(--main-branco);
+  transform: scale(0.95);
+}
+
 .producao {
   margin-top: 1em;
   font-size: 2em;
@@ -165,11 +194,18 @@ main {
     0 0
   );
   cursor: pointer;
+  position: relative;
+  bottom: 60px;
+  transition: 0.2s;
+}
+.clear {
+  clear: both;
 }
 
 .producao:hover {
   background: var(--main-preto);
   color: var(--main-branco);
+  transform: scale(0.95);
 }
 
 /****************************** Estatísticas *****/

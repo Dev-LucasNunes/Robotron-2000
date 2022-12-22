@@ -2,7 +2,9 @@
 
 const controle = document.querySelectorAll("[data-controle]");
 const estatistica = document.querySelectorAll("[data-estatistica]");
-const teste = document.querySelector(".teste");
+const color = document.querySelectorAll(".color");
+let robo = document.querySelector(".robo");
+console.log(robo);
 
 const pecas = {
   bracos: {
@@ -38,16 +40,15 @@ const pecas = {
   },
 };
 
-// alterar.forEach((el) => {
-//   el.addEventListener("click", mudaCor);
-// });
+function mudaCor(cor) {
+  robo.src = `img/robotron-${cor}.png`;
+}
 
-// function mudaCor() {
-//   alert("teste");
-// }
-console.log(teste);
-teste.addEventListener("click", () => {
-  alert("ggg");
+color.forEach((el) => {
+  el.addEventListener("click", (evt) => {
+    mudaCor(evt.target.textContent);
+    evt.preventDefault();
+  });
 });
 
 function manipulaDados(operacao, controle) {
