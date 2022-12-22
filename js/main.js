@@ -62,18 +62,24 @@ function manipulaDados(operacao, controle) {
   }
 }
 
-function atualizaEstatistica(peca) {
+function atualizaEstatistica(peca, operacao) {
   estatistica.forEach((elemento) => {
-    elemento.textContent =
-      parseInt(elemento.textContent) +
-      pecas[peca][elemento.dataset.estatistica];
+    if (operacao == "+") {
+      elemento.textContent =
+        parseInt(elemento.textContent) +
+        pecas[peca][elemento.dataset.estatistica];
+    } else {
+      elemento.textContent =
+        parseInt(elemento.textContent) -
+        pecas[peca][elemento.dataset.estatistica];
+    }
   });
 }
 
 controle.forEach((el) => {
   el.addEventListener("click", (evt) => {
     manipulaDados(evt.target.dataset.controle, evt.target.parentNode); //pega quem foi clicado e o pai dele respectivamente, mesmo com nomes iguais ele pega somente o pai do elemento clicado
-    atualizaEstatistica(evt.target.dataset.peca);
+    atualizaEstatistica(evt.target.dataset.peca, evt.target.dataset.controle);
   });
 });
 
